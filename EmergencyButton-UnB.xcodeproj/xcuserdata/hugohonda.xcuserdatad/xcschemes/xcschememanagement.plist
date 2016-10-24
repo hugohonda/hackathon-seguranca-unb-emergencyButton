@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>EmergencyButton-UnB.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>AD9BD6A61DBE977500EFB869</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AD9BD6BA1DBE977500EFB869</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AD9BD6C51DBE977500EFB869</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
