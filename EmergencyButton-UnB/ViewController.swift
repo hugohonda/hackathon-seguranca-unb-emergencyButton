@@ -30,7 +30,7 @@ class ViewController: UIViewController {
                     isConnectedLabel.text = "desplugado!"
                     print(headphonePulledOutMessage)
                     makeRequest()
-                    print(requestMadeMessage)            
+                    print(requestMadeMessage)
                 }
             }
         } else {
