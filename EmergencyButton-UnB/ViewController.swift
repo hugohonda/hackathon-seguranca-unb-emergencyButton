@@ -55,12 +55,6 @@ class ViewController: UIViewController {
             object: nil)
     }
     
-    func startStopWatch(){
-        stopWatchTimeLabel.isHidden = false;
-        stopTimerButton.isHidden = false;
-        startTimer()
-    }
-    
     func makeRequest() {
         var request = URLRequest(url: URL(string: myURL)!)
         request.httpMethod = "GET"
@@ -82,9 +76,16 @@ class ViewController: UIViewController {
                 print(headphonePulledOutMessage)
                 makeRequest()
                 print(requestMadeMessage)
+                startStopWatch()
             default:
                 break
         }
+    }
+    
+    func startStopWatch(){
+        stopWatchTimeLabel.isHidden = false;
+        stopTimerButton.isHidden = false;
+        startTimer()
     }
     
     @IBOutlet var displayTimeLabel: UILabel!
