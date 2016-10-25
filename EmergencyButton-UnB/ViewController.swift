@@ -21,6 +21,8 @@ class ViewController: UIViewController {
         
         let currentRoute = AVAudioSession.sharedInstance().currentRoute
         
+        
+        
         if currentRoute.outputs.count != 0 {
             for description in currentRoute.outputs {
                 if description.portType == AVAudioSessionPortHeadphones {
@@ -29,14 +31,14 @@ class ViewController: UIViewController {
                 } else {
                     isConnectedLabel.text = "desplugado!"
                     print(headphonePulledOutMessage)
-                    makeRequest()
-                    print(requestMadeMessage)
                 }
             }
         } else {
             isConnectedLabel.text = "requer conexão"
             print(deviceRequiredMessage)
         }
+        
+        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(ViewController.audioRouteChangeListener(_:)),
@@ -61,6 +63,8 @@ class ViewController: UIViewController {
             case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
                 isConnectedLabel.text = "desplugado!"
                 print(headphonePulledOutMessage)
+                makeRequest()
+                print(requestMadeMessage)
             default:
                 break
         }
