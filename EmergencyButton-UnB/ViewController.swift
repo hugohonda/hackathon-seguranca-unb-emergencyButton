@@ -6,9 +6,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var headphonePluggedInStateImageView: UIImageView!
     @IBOutlet weak var isConnectedLabel: UILabel!
     
-    @IBOutlet weak var stopWatchTimeLabel: UILabel!
     @IBOutlet weak var stopTimerButton: UIButton!
+    @IBOutlet var displayTimeLabel: UILabel!
+    var startTime = TimeInterval()
+    var timer:Timer = Timer()
     
+    @IBOutlet weak var sentMessageLabel: UILabel!
     
     let deviceRequiredMessage = "device required"
     let headphonePluggedInMessage = "headphone in"
@@ -26,8 +29,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        stopWatchTimeLabel.isHidden = true;
+        displayTimeLabel.isHidden = true;
         stopTimerButton.isHidden = true;
+        sentMessageLabel.isHidden = true;
+        startStopWatch()
         
         let currentRoute = AVAudioSession.sharedInstance().currentRoute
         
@@ -74,8 +79,6 @@ class ViewController: UIViewController {
                 isConnectedLabel.text = "Desplugado!"
                 headphonePluggedInStateImageView.image = headphonePulledOutImage
                 print(headphonePulledOutMessage)
-                makeRequest()
-                print(requestMadeMessage)
                 startStopWatch()
             default:
                 break
@@ -83,16 +86,10 @@ class ViewController: UIViewController {
     }
     
     func startStopWatch(){
-        stopWatchTimeLabel.isHidden = false;
+        displayTimeLabel.isHidden = false;
         stopTimerButton.isHidden = false;
         startTimer()
     }
-    
-    @IBOutlet var displayTimeLabel: UILabel!
-    
-    var startTime = TimeInterval()
-    
-    var timer:Timer = Timer()
     
     func startTimer() {
         if (!timer.isValid) {
@@ -124,6 +121,14 @@ class ViewController: UIViewController {
         let fraction = UInt8(elapsedTime * 100)
         
         //add the leading zero for minutes, seconds and millseconds and store them as string constants
+        
+        if(seconds > 6){
+            makeRequest()
+            print(requestMadeMessage)
+            sentMessageLabel.isHidden = false;
+            sentMessageLabel.text = "Pânico enviado!"
+            timer.invalidate()
+        }
         
         let strMinutes = String(format: "%02d", minutes)
         let strSeconds = String(format: "%02d", seconds)
