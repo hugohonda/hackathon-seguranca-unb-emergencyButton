@@ -9,6 +9,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopWatchTimeLabel: UILabel!
     @IBOutlet weak var stopTimerButton: UIButton!
     
+    
     let deviceRequiredMessage = "device required"
     let headphonePluggedInMessage = "headphone in"
     let headphonePulledOutMessage = "headphone out"
@@ -27,6 +28,8 @@ class ViewController: UIViewController {
         
         //stopWatchTimeLabel.isHidden = true;
         //stopTimerButton.isHidden = true;
+        
+        startTimer()
         
         let currentRoute = AVAudioSession.sharedInstance().currentRoute
         
@@ -100,7 +103,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func stop(sender: AnyObject) {
+    @IBAction func stopTimer(_ sender: AnyObject) {
         timer.invalidate()
     }
     
