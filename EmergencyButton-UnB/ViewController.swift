@@ -11,14 +11,16 @@ class ViewController: UIViewController {
     var startTime = TimeInterval()
     var timer:Timer = Timer()
     
-    @IBOutlet weak var sentMessageLabel: UILabel!
+    var flagSentMessage = false
+    var canceledFlag = false
+    var secondMarker = 0
     
     let deviceRequiredMessage = "device required"
     let headphonePluggedInMessage = "headphone in"
     let headphonePulledOutMessage = "headphone out"
+    let requestMadeMessage = "requested made"
     let headphonePluggedInImage = UIImage(named: "01-allright")
     let headphonePulledOutImage = UIImage(named: "02-panic")
-    let requestMadeMessage = "requested made"
     
     let myURL = "https://hackathonseguranca.herokuapp.com/panicbutton"
     let myString = "swift funfou"
@@ -31,8 +33,6 @@ class ViewController: UIViewController {
         
         displayTimeLabel.isHidden = true;
         stopTimerButton.isHidden = true;
-        sentMessageLabel.isHidden = true;
-        startStopWatch()
         
         let currentRoute = AVAudioSession.sharedInstance().currentRoute
         
@@ -100,42 +100,49 @@ class ViewController: UIViewController {
     }
     
     @IBAction func stopTimer(_ sender: AnyObject) {
-        timer.invalidate()
+        if(canceledFlag){
+            timer.invalidate()
+            canceledFlag = false
+            displayTimeLabel.text = "00:00:00"
+            displayTimeLabel.isHidden = true
+            stopTimerButton.setTitle("Desativar", for: UIControlState.normal )
+            stopTimerButton.isHidden = true
+            return
+        }
+        if(!flagSentMessage){
+            timer.invalidate()
+            displayTimeLabel.text = "CANCELADO!"
+            canceledFlag = true
+            stopTimerButton.isHidden = false
+            stopTimerButton.setTitle("Retomar", for: UIControlState.normal )
+        }
     }
     
     func updateTime() {
         let currentTime = NSDate.timeIntervalSinceReferenceDate
-        
-        //Find the difference between current time and start time.
         var elapsedTime: TimeInterval = currentTime - startTime
-        
-        //calculate the minutes in elapsed time.
         let minutes = UInt8(elapsedTime / 60.0)
         elapsedTime -= (TimeInterval(minutes) * 60)
-        
-        //calculate the seconds in elapsed time.
         let seconds = UInt8(elapsedTime)
         elapsedTime -= TimeInterval(seconds)
-        
-        //find out the fraction of milliseconds to be displayed.
         let fraction = UInt8(elapsedTime * 100)
-        
-        //add the leading zero for minutes, seconds and millseconds and store them as string constants
-        
-        if(seconds > 6){
-            makeRequest()
-            print(requestMadeMessage)
-            sentMessageLabel.isHidden = false;
-            sentMessageLabel.text = "Pânico enviado!"
-            timer.invalidate()
-        }
-        
         let strMinutes = String(format: "%02d", minutes)
         let strSeconds = String(format: "%02d", seconds)
         let strFraction = String(format: "%02d", fraction)
-        
-        //concatenate minuets, seconds and milliseconds as assign it to the UILabel
         displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        
+        secondMarker = Int(seconds)
+        
+        if(secondMarker < 5){
+            flagSentMessage = false
+        }else{
+            flagSentMessage = true
+            displayTimeLabel.text = "PÂNICO!"
+            stopTimerButton.isHidden = true
+            timer.invalidate()
+            makeRequest()
+            print(requestMadeMessage)
+        }
     }
     
     

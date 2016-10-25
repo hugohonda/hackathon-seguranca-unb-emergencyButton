@@ -73,12 +73,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="sentMessage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uux-ly-hWC">
-                                <frame key="frameInset" minX="166" minY="591" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9a-EI-KOd">
                                 <frame key="frameInset" minX="104" minY="39" width="166" height="50"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
@@ -96,10 +90,8 @@
                             <constraint firstItem="dcY-cy-fwI" firstAttribute="top" secondItem="H3q-Pb-c9H" secondAttribute="bottom" constant="56" id="QJ3-gK-zDm"/>
                             <constraint firstItem="Ow2-T6-S7E" firstAttribute="top" secondItem="H3q-Pb-c9H" secondAttribute="bottom" constant="59" id="Sc4-mv-EQi"/>
                             <constraint firstItem="24L-Dq-sQ9" firstAttribute="top" secondItem="Ow2-T6-S7E" secondAttribute="bottom" constant="14" id="Ynv-FX-GNX"/>
-                            <constraint firstItem="Uux-ly-hWC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZD5-74-GIP"/>
                             <constraint firstItem="H3q-Pb-c9H" firstAttribute="centerX" secondItem="c9a-EI-KOd" secondAttribute="centerX" id="fZK-YU-Hbn"/>
                             <constraint firstItem="24L-Dq-sQ9" firstAttribute="leading" secondItem="Ckn-2s-oMg" secondAttribute="trailing" constant="11" id="fcL-M0-Bag"/>
-                            <constraint firstItem="Uux-ly-hWC" firstAttribute="top" secondItem="iC9-nP-drP" secondAttribute="bottom" constant="8" id="hvx-7X-sWy"/>
                             <constraint firstItem="iC9-nP-drP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="itI-ht-Tgu"/>
                             <constraint firstItem="Zg2-ub-ENt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rBt-Pa-9zc"/>
                             <constraint firstItem="H3q-Pb-c9H" firstAttribute="top" secondItem="c9a-EI-KOd" secondAttribute="bottom" constant="23" id="uRr-KO-LQl"/>
@@ -114,7 +106,6 @@
                         <outlet property="isConnectedLabel" destination="c9a-EI-KOd" id="0Md-P0-9yF"/>
                         <outlet property="latitudeLabel" destination="Ow2-T6-S7E" id="ZV3-gL-Cfd"/>
                         <outlet property="longitudeLabel" destination="24L-Dq-sQ9" id="IeM-Tv-Jje"/>
-                        <outlet property="sentMessageLabel" destination="Uux-ly-hWC" id="oT2-le-klo"/>
                         <outlet property="stopTimerButton" destination="iC9-nP-drP" id="2sw-TJ-IAw"/>
                     </connections>
                 </viewController>
