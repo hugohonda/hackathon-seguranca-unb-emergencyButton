@@ -19,6 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9a-EI-KOd">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vx8-b5-ah0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcY-cy-fwI">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="82" id="3Ss-Ok-yfP"/>
@@ -42,26 +50,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9a-EI-KOd">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="vx8-b5-ah0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H3q-Pb-c9H"/>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ow2-T6-S7E" firstAttribute="leading" secondItem="24L-Dq-sQ9" secondAttribute="leading" id="9zt-d8-iYI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ow2-T6-S7E" secondAttribute="trailing" id="Cb5-kc-gfz"/>
-                            <constraint firstItem="c9a-EI-KOd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="82" id="ECK-a2-Xe9"/>
+                            <constraint firstItem="H3q-Pb-c9H" firstAttribute="centerX" secondItem="c9a-EI-KOd" secondAttribute="centerX" id="CqO-cC-5Dm"/>
+                            <constraint firstItem="c9a-EI-KOd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="65" id="ECK-a2-Xe9"/>
                             <constraint firstItem="dcY-cy-fwI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IH0-tL-qOl"/>
                             <constraint firstItem="dcY-cy-fwI" firstAttribute="leading" secondItem="Ckn-2s-oMg" secondAttribute="leading" id="Peb-I5-UbS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ckn-2s-oMg" secondAttribute="bottom" constant="300" id="bJN-3b-5Q4"/>
+                            <constraint firstItem="H3q-Pb-c9H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="111" id="RsZ-yU-oqf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ckn-2s-oMg" secondAttribute="bottom" constant="220" id="bJN-3b-5Q4"/>
                             <constraint firstItem="Ckn-2s-oMg" firstAttribute="top" secondItem="dcY-cy-fwI" secondAttribute="bottom" constant="8" symbolic="YES" id="doD-li-eJy"/>
                             <constraint firstItem="dcY-cy-fwI" firstAttribute="trailing" secondItem="Ckn-2s-oMg" secondAttribute="trailing" id="dqJ-P5-lQV"/>
                             <constraint firstAttribute="trailing" secondItem="c9a-EI-KOd" secondAttribute="trailing" id="iHZ-DP-86l"/>
+                            <constraint firstItem="dcY-cy-fwI" firstAttribute="top" secondItem="H3q-Pb-c9H" secondAttribute="bottom" constant="117" id="k0W-Wz-ghG"/>
+                            <constraint firstItem="H3q-Pb-c9H" firstAttribute="top" secondItem="c9a-EI-KOd" secondAttribute="bottom" constant="25" id="mhx-e2-ZLw"/>
                             <constraint firstItem="dcY-cy-fwI" firstAttribute="baseline" secondItem="Ow2-T6-S7E" secondAttribute="baseline" constant="1.5" id="qZ1-SQ-0jR"/>
                             <constraint firstItem="Ow2-T6-S7E" firstAttribute="leading" secondItem="dcY-cy-fwI" secondAttribute="trailing" constant="12" id="uch-fH-Q1G"/>
                             <constraint firstItem="c9a-EI-KOd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xD6-Ax-fUG"/>
@@ -70,6 +75,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="headphonePluggedInStateImageView" destination="H3q-Pb-c9H" id="1js-oS-onv"/>
                         <outlet property="isConnectedLabel" destination="c9a-EI-KOd" id="0Md-P0-9yF"/>
                         <outlet property="latitudeLabel" destination="Ow2-T6-S7E" id="ZV3-gL-Cfd"/>
                         <outlet property="longitudeLabel" destination="24L-Dq-sQ9" id="IeM-Tv-Jje"/>

@@ -7,6 +7,8 @@ class ViewController: UIViewController {
     let deviceRequiredMessage = "device required"
     let headphonePluggedInMessage = "headphone in"
     let headphonePulledOutMessage = "headphone out"
+    let headphonePluggedInImage = UIImage(named: "01-allright")
+    let headphonePulledOutImage = UIImage(named: "02-panic")
     let requestMadeMessage = "requested made"
     @IBOutlet weak var isConnectedLabel: UILabel!
     
@@ -21,15 +23,15 @@ class ViewController: UIViewController {
         
         let currentRoute = AVAudioSession.sharedInstance().currentRoute
         
-        
-        
         if currentRoute.outputs.count != 0 {
             for description in currentRoute.outputs {
                 if description.portType == AVAudioSessionPortHeadphones {
                     isConnectedLabel.text = "plugado!"
+                    headphonePluggedInStateImageView.image = headphonePluggedInImage
                     print(headphonePluggedInMessage)
                 } else {
                     isConnectedLabel.text = "desplugado!"
+                    headphonePluggedInStateImageView.image = headphonePulledOutImage
                     print(headphonePulledOutMessage)
                 }
             }
