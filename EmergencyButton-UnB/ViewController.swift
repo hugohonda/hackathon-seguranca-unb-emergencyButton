@@ -1,13 +1,20 @@
 import UIKit
 import AVFoundation
+import CoreLocation
 
 class ViewController: UIViewController {
     @IBOutlet weak var headphonePluggedInStateImageView: UIImageView!
-    let deviceRequiredImage = "device_required"
-    let headphonePluggedInMessage = "headphone_plugged_in"
-    let headphonePulledOutMessage = "headphone_pulled_out"
-    
+    let deviceRequiredMessage = "device required"
+    let headphonePluggedInMessage = "headphone in"
+    let headphonePulledOutMessage = "headphone out"
+    let requestMadeMessage = "requested made"
     @IBOutlet weak var isConnectedLabel: UILabel!
+    
+    let myURL = "https://hackathonseguranca.herokuapp.com/panicbutton"
+    let myString = "swift funfou"
+    
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,17 +25,18 @@ class ViewController: UIViewController {
             for description in currentRoute.outputs {
                 if description.portType == AVAudioSessionPortHeadphones {
                     isConnectedLabel.text = "plugado!"
-                    print("headphone plugged in")
+                    print(headphonePluggedInMessage)
                 } else {
                     isConnectedLabel.text = "desplugado!"
-                    print("headphone pulled out")
+                    print(headphonePulledOutMessage)
+                    makeRequest()
+                    print(requestMadeMessage)            
                 }
             }
         } else {
             isConnectedLabel.text = "requer conexão"
-            print("requires connection to device")
+            print(deviceRequiredMessage)
         }
-        
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(ViewController.audioRouteChangeListener(_:)),
@@ -36,18 +44,25 @@ class ViewController: UIViewController {
             object: nil)
     }
     
+    func makeRequest() {
+        var request = URLRequest(url: URL(string: myURL)!)
+        request.httpMethod = "GET"
+        request.httpBody = myString.data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request)
+        task.resume()
+    }
+    
     dynamic fileprivate func audioRouteChangeListener(_ notification:Notification) {
         let audioRouteChangeReason = (notification as NSNotification).userInfo![AVAudioSessionRouteChangeReasonKey] as! UInt
-        
         switch audioRouteChangeReason {
-        case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
-            isConnectedLabel.text = "plugado!"
-            print("headphone plugged in")
-        case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
-            isConnectedLabel.text = "desplugado!"
-            print("headphone pulled out")
-        default:
-            break
+            case AVAudioSessionRouteChangeReason.newDeviceAvailable.rawValue:
+                isConnectedLabel.text = "plugado!"
+                print(headphonePluggedInMessage)
+            case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.rawValue:
+                isConnectedLabel.text = "desplugado!"
+                print(headphonePulledOutMessage)
+            default:
+                break
         }
     }
     

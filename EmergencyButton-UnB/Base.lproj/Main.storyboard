@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -36,8 +37,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9a-EI-KOd">
-                                <frame key="frameInset" minY="323" width="375" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcY-cy-fwI">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="82" id="3Ss-Ok-yfP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Latitude Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow2-T6-S7E">
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Longitude Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24L-Dq-sQ9">
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckn-2s-oMg">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c9a-EI-KOd">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vx8-b5-ah0"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,12 +71,26 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="c9a-EI-KOd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="6dR-mj-mZj"/>
-                            <constraint firstItem="c9a-EI-KOd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nwh-ga-LUt"/>
+                            <constraint firstItem="Ow2-T6-S7E" firstAttribute="leading" secondItem="24L-Dq-sQ9" secondAttribute="leading" id="9zt-d8-iYI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ow2-T6-S7E" secondAttribute="trailing" id="Cb5-kc-gfz"/>
+                            <constraint firstItem="c9a-EI-KOd" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="82" id="ECK-a2-Xe9"/>
+                            <constraint firstItem="dcY-cy-fwI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IH0-tL-qOl"/>
+                            <constraint firstItem="dcY-cy-fwI" firstAttribute="leading" secondItem="Ckn-2s-oMg" secondAttribute="leading" id="Peb-I5-UbS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ckn-2s-oMg" secondAttribute="bottom" constant="300" id="bJN-3b-5Q4"/>
+                            <constraint firstItem="Ckn-2s-oMg" firstAttribute="top" secondItem="dcY-cy-fwI" secondAttribute="bottom" constant="8" symbolic="YES" id="doD-li-eJy"/>
+                            <constraint firstItem="dcY-cy-fwI" firstAttribute="trailing" secondItem="Ckn-2s-oMg" secondAttribute="trailing" id="dqJ-P5-lQV"/>
+                            <constraint firstAttribute="trailing" secondItem="c9a-EI-KOd" secondAttribute="trailing" id="iHZ-DP-86l"/>
+                            <constraint firstItem="dcY-cy-fwI" firstAttribute="baseline" secondItem="Ow2-T6-S7E" secondAttribute="baseline" constant="1.5" id="qZ1-SQ-0jR"/>
+                            <constraint firstItem="Ow2-T6-S7E" firstAttribute="leading" secondItem="dcY-cy-fwI" secondAttribute="trailing" constant="12" id="uch-fH-Q1G"/>
+                            <constraint firstItem="c9a-EI-KOd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xD6-Ax-fUG"/>
+                            <constraint firstItem="Ow2-T6-S7E" firstAttribute="trailing" secondItem="24L-Dq-sQ9" secondAttribute="trailing" id="xwY-xv-s20"/>
+                            <constraint firstItem="Ckn-2s-oMg" firstAttribute="baseline" secondItem="24L-Dq-sQ9" secondAttribute="baseline" constant="1.5" id="yu7-du-we6"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="isConnectedLabel" destination="c9a-EI-KOd" id="0Md-P0-9yF"/>
+                        <outlet property="latitudeLabel" destination="Ow2-T6-S7E" id="ZV3-gL-Cfd"/>
+                        <outlet property="longitudeLabel" destination="24L-Dq-sQ9" id="IeM-Tv-Jje"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
