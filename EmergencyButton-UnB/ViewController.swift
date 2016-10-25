@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     func startStopWatch(){
         stopWatchTimeLabel.isHidden = false;
         stopTimerButton.isHidden = false;
-        
+        startTimer()
     }
     
     func makeRequest() {
@@ -82,7 +82,6 @@ class ViewController: UIViewController {
                 print(headphonePulledOutMessage)
                 makeRequest()
                 print(requestMadeMessage)
-                startTimer()
             default:
                 break
         }
