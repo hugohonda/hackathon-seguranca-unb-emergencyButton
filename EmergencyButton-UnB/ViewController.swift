@@ -26,10 +26,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //stopWatchTimeLabel.isHidden = true;
-        //stopTimerButton.isHidden = true;
-        
-        startTimer()
+        stopWatchTimeLabel.isHidden = true;
+        stopTimerButton.isHidden = true;
         
         let currentRoute = AVAudioSession.sharedInstance().currentRoute
         
@@ -84,6 +82,7 @@ class ViewController: UIViewController {
                 print(headphonePulledOutMessage)
                 makeRequest()
                 print(requestMadeMessage)
+                startTimer()
             default:
                 break
         }
